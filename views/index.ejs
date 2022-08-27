@@ -6,17 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="style.css">
   <title>URL Shrinker</title>
 </head>
 <body>
 	<div class="container">
 		<h1>URL SHRINKER</h1>
-  <form action="" method="POST" class="my-4 form-inline">
+  <form action="/shortUrls" method="POST" class="my-4 form-inline">
     <label class="sr-only" for="fullUrl" >URL</label>
     <input required placeholder="url" type="url"  name="fullUrl" id="fullUrl" class="form-control col mr-2">
     <button type="submit" class="btn btn-success">Shrink</button>
   </form>
-  <table class="table table-striped table-bordered">
+  <table class="table table-striped table-responsive">
   <thead>
     <tr>
       <th>Full URL</th>
@@ -25,13 +26,17 @@
     </tr>
   </thead>
   <tbody>
+    <% shortUrls.forEach(shortUrl =>{ %>
     <tr>
-      <td><a href="http://www.google.com">https://www.google.com</a></th>
-      <td><a href="/123456">123456</a></th>
-      <td>0</th>
+      <td><a href="<%= shortUrl.full %>"><%= shortUrl.full %></a></th>
+      <td><a href="<%= shortUrl.short %>"><%= shortUrl.short %></123456</a></th>
+      <td><%= shortUrl.clicks %></th>
       </tr>
+    <%})%>
+    
     </tbody>
-  </table></div>
+  </table>
+</div>
   
 </body>
 </html>
