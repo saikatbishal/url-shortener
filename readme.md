@@ -17,4 +17,4 @@
 
 * Inside the `scripts` object delete the key : value pair and add this --`"start": "nodemon server.js"`
 
-![See image here](image/readme/1661584398569.png)
+![See image here](image/packagedotjson.png)
